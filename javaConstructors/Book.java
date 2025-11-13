@@ -1,26 +1,39 @@
-public class Book{
+class Book{
     String title;
     String author;
     double price;
-
+    boolean availabilty;
+    
 Book(){
-    title ="unknown";
-    author="unknown";
-    price =0.0;
-}
-Book(String t , String a , double p){
-    title = t;
-    author =a;
-    price =p;
+
 }
 
-//class Main {
-    public static void main(String[]args){
-        Book b1 = new Book();
-        Book b2 = new Book("java","amol",100.78);
-        System.out.println(b1.title + b1.author + b1.price);
-        System.out.println(b2.title + b2.author + b2.price);
+Book(String t , String a , double p, boolean z){
+    this.title=t;
+    this.author=a;
+    this.price=p;
+    this.availabilty=z;
+
+}
+public void BorrowBOOK(){
+    if (availabilty){
+        System.out.println(" availability : "+(availabilty?  "yes":"no")+"\n title : "+ title + "\n price : "+price+ " author : "+ author);
+        System.out.println("YOU HAVE SUCCESSFULLY BORROW THE BOOK!");
+        availabilty=false;
+    }
+    else{
+    System.out.println( "availability : "+(availabilty? "yes":"no")+ "\n SORRY THE BOOK IS NOT AVAILABLE!!!");
     }
 }
+public static void main(String[]args){
 
+    Book b1 = new Book("java", "aditi",1000 ,true);
+    Book b2 = new Book("maths", "nanadini",1500 ,true);
+    Book b3 = new Book("english", "dipika",1000 , false);
 
+b1.BorrowBOOK();
+b2.BorrowBOOK();
+b3.BorrowBOOK();
+b1.BorrowBOOK();
+}
+}
