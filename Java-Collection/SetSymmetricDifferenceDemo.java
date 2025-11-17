@@ -1,0 +1,18 @@
+import java.util.*;
+
+public class SetSymmetricDifferenceDemo {
+    public static void main(String[] args) {
+        Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 2, 3));
+        Set<Integer> set2 = new HashSet<>(Arrays.asList(3, 4, 5));
+
+        Set<Integer> symmetricDiff = new HashSet<>(set1);
+        symmetricDiff.addAll(set2);
+
+        Set<Integer> tmp = new HashSet<>(set1);
+        tmp.retainAll(set2);
+
+        symmetricDiff.removeAll(tmp);
+
+        System.out.println("Symmetric Difference: " + symmetricDiff);
+    }
+}
